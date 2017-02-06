@@ -162,3 +162,18 @@ $.ajax(settings2);
   * 可见在以对象传递给msg的时候，不会对里面的参数进行urldecode，而以string传递的时候则会进行一次urldecode
   * 所以在服务端收到消息的时候，建议都进行一次urldecode比较安全
 
+
+### Chrome的插件和常用功能
+	* 当我们变更过DNS后，强制清除CHROME的缓存方法
+		* 地址栏打开 `chrome://net-internals/#capture` 点击右上角箭头
+		* 分别执行 clear cache 和 flush sockets
+	* 常用插件
+		* CORS Toggle ： 允许跨域（注意需要设置header内允许的字段）
+		* Ad Block ： 阻止弹出广告
+		* FireShot ： 可以给网页截图（截取后下载到本地）
+		* 网页截图:注释&批注 ： www.awesomescreenshot.com提供的，也是用来网页截图的，截图后还可以进行在线简单编辑后下载本地
+		* Github Toc ： 让GITHUB内支持markdown的toc目录标签
+
+
+
+		
