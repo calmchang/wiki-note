@@ -7,6 +7,7 @@ var str= "?am_id=2&approach=test&type=2&phone=137000";
 * 取出type的值？
 * 替换type的值？
 * 直接删除type这个参数
+* 取出所有参数=值
 
 一个替换字符串的案例  
 var str = "{param1} name is {param2}";
@@ -149,6 +150,34 @@ var str = "{param1} name is {param2}";
 
 ### i参数忽略大小写
 	var patten = /{i (\w+) you}/ig; 
+
+
+
+### 回到最初
+var str= "?am_id=2&approach=test&type=2&phone=137000";
+* 取出所有 参数=值 列表
+```
+let result = {};
+let temp = null;
+let patten = /([^&?]+)=([^&?]+)/g;
+temp = patten.exec(str);
+if (temp) {result[temp[1]] = temp[2];}
+while (patten.lastIndex !== 0) {
+    temp = patten.exec(str);
+    if (temp) {result[temp[1]] = temp[2];}
+}
+return result;
+```
+
+* 查询type的值？
+```
+var temp = null;
+var patten=/[&?]type=([^&?]+)/g;
+temp = patten.exec(str);
+if(temp){console.log(temp[1]);}
+
+```
+
 
 
 

@@ -175,5 +175,26 @@ $.ajax(settings2);
 		* Github Toc ： 让GITHUB内支持markdown的toc目录标签
 
 
+### 缓存  
+## manifest使用方法  
+* 创建 application.appcache 配置文件
+	
+~~~javascript
+		CACHE MANIFEST
+		#2015-5-20-18-02 这一行用来代表版本号
+		testcache.html
+~~~
+
+* 头部定义缓存配置文件 `<html manifest='application.appcache'>`  
+* 在页面内增加监听方法,目的是检测到缓存配置文件发生变化的话就重新载入页面  
+~~~javascript
+		window.applicationCache.onupdateready=function(e)
+		{
+			console.log('update cache');
+			location.reload();
+		};
+~~~
+	
+
 
 		
