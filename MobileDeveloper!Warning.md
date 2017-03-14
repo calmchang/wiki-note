@@ -175,8 +175,9 @@ $.ajax(settings2);
 		* Github Toc ： 让GITHUB内支持markdown的toc目录标签
 
 
-### 缓存  
-## manifest使用方法  
+ 
+
+### manifest使用方法  
 * 创建 application.appcache 配置文件
 	
 ~~~javascript
@@ -195,6 +196,21 @@ $.ajax(settings2);
 		};
 ~~~
 	
+
+
+### MAC OS开发常用软件
+* git: SourceTree
+* svn: Cornerstone
+* 抓包: Charles
+* git 对比: DiffMerge
+* 修改host文件: iHosts
+* 屏幕录像: LICEcap
+* 远程服务器: zoc7
+* 文件复制帮手: Yoink
+* 压缩解压: The Unarchiver
+* 代理软件: ShadowsocksX
+
+
 
 
 		
