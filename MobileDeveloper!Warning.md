@@ -196,11 +196,41 @@ $.ajax(settings2);
 		};
 ~~~
 	
+### ES5中继承的方法
+* 简单期间，封装了一个用于继承2个类的方法如下:
 
+~~~javascript
+	function ext(son,father){
+		//先调用父类构造方法进行初始化
+		father.apply(son,arguments[2]);
+		//然后遍历当期那子类的所有方法，如果出现重复，则不用父类覆盖子类
+		for( var param in father.prototype ){
+			if( !son.__proto__[param ]){
+				son.__proto__[param] = father.prototype[param];
+			}
+		}
+	}
+	
+	//使用方法如下
+	function Father(name){
+		this.name= name;
+	}
+	Father.prototype.say = function(){
+		console.log('father say ' + this.name);
+	};
+
+	function Son(name){
+		ext(this,Father,arguments);
+	}
+	Son.prototype.say = function(){
+		console.log('son say ' + this.name);
+	};
+
+~~~
 
 ### MAC OS开发常用软件
 * git: SourceTree
-* svn: Cornerstone
+* svn: Cornerstone  `http://www.zennaware.com/cornerstone/`
 * 抓包: Charles
 * git 对比: DiffMerge
 * 修改host文件: iHosts
