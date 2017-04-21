@@ -28,17 +28,20 @@
 
 本来我们代码的期望是`footer`保持`height:80px`高度不变，而现在`footer`被压缩了
 
-原因是在一个设置了`固定高度`的 `box` 中内的元素由于设置了flex:1，子元素会将其元素内的内容高度所占用`box`的内容高度去除后
-`box`剩下高度平均分给各个同级的子元素,这里一旦超出了100%后由于剩余空间不足，则会压缩footer;
-
-那么如何达到footer的期望效果呢？那就是让footer内的内容自身高度保持在80px
-
-
+解决方法有2种：
 ```
 <box class="flex flex-col" style="width:100%;height:100%;">
     <section style="flex:1"></section>
     <footer>
     	<div style="height:80px"></div>
+    </footer>
+</box>
+```
+或者
+```
+<box class="flex flex-col" style="width:100%;height:auto;">
+    <section style="flex:1"></section>
+    <footer>
     </footer>
 </box>
 ```
@@ -48,7 +51,9 @@
 ![](flexBox/2.gif)
 
 总结：
-在使用flex:1自动填充属性的时候，如果期望一些元素高度有固定值，那么不是在这个子元素身上设置高度，而是应该在其内部用其他元素填充这个高度。
+* 在使用flex:1时，`<box>`高度为固定值时，则会将`<section>`的高度去除后，将剩余高度分配给`<footer>`覆盖了`<footer>`原本设置的高度，在`<footer>`内部定义的dom设置高度，可以强行撑开`<footer>`
+* 而`<box>`为auto时，因为高度空间有无限的高，所以`<section>`会根据自己内容而变更自身高度，不影响`footer`的高度。
+
 
 
 
