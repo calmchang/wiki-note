@@ -95,3 +95,33 @@
 |	just a moment 	|	稍等一会	|		|
 |	be back soon,be back in a minute	|	很快回来	|		|
 |	gotta go	|	 = have to go 我得走了	|		|
+
+
+
+##场景对话
+
+### 旅行
+* 预定房间
+~~~
+make a reservation 预定
+vacancy ['vekənsi] n. 空缺;表示空房
+available [ə'veləbl] adj.有空的；表示有房
+
+--------
+
+I'd like to make a reservation for the third weekend in September. Do you have any vacancies?
+ 我要在九月份的第三个周末预定一个房间，你们还有空房吗？
+
+We have several rooms available for that weekend. 
+我们那个周末还有房间。
+
+I'll be staying for two nights. 
+ 我打算住两个晚上。
+
+And would you like a room with twin beds or a double bed? 
+你是要定一个大床还是两个单人床呢？
+
+If that type of room is available, I would love to have an ocean view. 
+如果这种房型有的话，我愿意住海景房。
+~~~
+

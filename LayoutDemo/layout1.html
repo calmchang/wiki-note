@@ -1,0 +1,45 @@
+<html class="screenAuto">
+<head>
+
+	<title>固定header，footer，content可以滚动的实例</title>
+  <meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" type="text/css" href="css/layout1.css">
+
+</head>
+<body>
+
+	<header>
+		header
+	</header>
+	<div id="content-background" class="flex-col flex-auto">
+		<div id="content">
+			<p>content, ``click me`` </p>
+		</div>
+	</div>
+	<footer>
+			footer
+	</footer>
+
+	
+	
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById('content').onclick=function(e){
+			var dom = document.getElementById('content');
+			for(var i = 0 ; i < 50; i++ ){
+				var p = document.createElement('p');
+				p.innerText = ''+i;
+				dom.appendChild(p);
+			}
+		};
+	};
+</script>
+</body>
+</html>
