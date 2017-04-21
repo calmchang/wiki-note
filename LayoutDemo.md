@@ -5,5 +5,6 @@
 ![](LayoutDemo/image/layout1.jpg) 
 
 ![](LayoutDemo/image/layout2.jpg) 
+![](flexBox/2.gif)
 
 
