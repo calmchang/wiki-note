@@ -241,6 +241,17 @@ $.ajax(settings2);
 * 代理软件: ShadowsocksX
 
 
+### ajax相关
+* 在zepto内默认的Content-Type为application/x-www-form-urlencoded
+  
+  当data为一个object时，zepto将会把它转换成key1=value1&key2=value2的形式，转换过程中，会对key和value进行urlencode。
+
+  所以在服务器拿到消息时，会默认进行一次urldecode
+
+  而如果data为一个字符串时，则zepto不会对其进行urlencode
+
+
+
 
 
 		
