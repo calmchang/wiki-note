@@ -1,4 +1,5 @@
 [TOC]
+## 如果您喜欢我写的内容，那么给我一个星星吧！※
 
 ### select标签
   * 获取选项值的时候 dom.selectedOptions[0]不兼容，应该用dom.options[dom.selectIndex]获取到对象
@@ -251,7 +252,17 @@ $.ajax(settings2);
   而如果data为一个字符串时，则zepto不会对其进行urlencode
 
 
+### WEB加载的大致流程 - window.onload、DOMContentLoaded、load 之间的区别
 
+* 我在这边画了一张流程图来展示整个url打开的过程  
 
+![](MobileDeveloper/timeline.png)
+
+* 总结一下
+	* 1、几个load事件调用先后顺序 `window.onload` -> `DOMContentLoaded` -> `load`
+	* 2、其中`DOMContentLoaded`代表已经首屏展示（如果你没有强制设置隐藏的话）、load事件代表全部非异步加载的资源全部就绪了。
+	* 提高页面加载速度的技巧：
+		* 减少非首屏必须的js和css加载，可以放入load后异步加载
+		* `load`事件会等待页面所有资源加载完毕后才触发，所以类似img标签的图片资源加载过程是不影响`DOMContentLoaded`事件的触发的，但是只有当img全部加载完毕才会触发load,优化方法是img src使用默认一张统一的图片，然后在`load`事件后异步加载.
 
 		
