@@ -3,6 +3,7 @@
 ## 注意事项
 * 一个元素指定了flex 横向排列后，其内部的元素默认会按照父元素的最大宽度进行平均排列，如果超出宽度则挤压，如果想突破父元素的宽度则指定width:max-content; 这个问题经常在做可以左右滚动的列表中出现
 
+
 ## 例子内用到的样式表
 ```
 .flex-col{
@@ -13,7 +14,41 @@
 	display: flex;
 	lex-direction: row;
 }
+.flex-auto{
+  flex-grow:1;
+  box-flex:1;
+}
 ```
+
+
+### flex-auto的坑
+
+```
+<div class="flex-col" style="width:100%;height:300px;">
+
+<div class="flex-auto flex-col" style="border:2px solid red;">
+    <div class="flex-auto flex-col">
+      <div id="box" style="width:100%;height:100%;background:black;"></div>
+    </div>
+</div>
+
+<footer style="width:100%;border:2px solid green;">
+  <div style="width:100%;height:60px;">
+  </div>
+</footer>
+
+</div>
+```
+* 想一下id="box"的div现在应该是什么样？占据300-60高度填充了黑色？
+* 其实box的高度是0，因为他的父级属性是`flex-auto`，一旦拥有`flex-auto`，那么当前div的高度不是由style的height决定，而是div内部子元素的总高度决定
+* 修改一下
+```
+<div id="box" class="flex-auto" style="width:100%;height:100%;background:black;"></div>
+```
+* 这个时候就正确了,为什么呢？想一下~~~
+
+
+
 
 ### flex:1 自动平均分配空间的探索
 
