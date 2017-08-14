@@ -11,6 +11,20 @@
 ### input标签
   * 在禁止用户编辑的时候，设置readonly="readonly",不要用disabled
   * type为file的时候，如果display设置为none会导致某些机器无法正常使用，所以通过透明度来隐藏<div style="opacity:0;"><input /></div>
+  * android机上，当软键盘弹出后可能会遮挡输入框，解决方法使用 scrollIntoViewIfNeeded
+```
+   window.addEventListener("resize", function() {
+    if(document.activeElement){
+      if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+        if(document.activeElement.scrollIntoViewIfNeeded){
+          window.setTimeout(function() {
+            document.activeElement.scrollIntoViewIfNeeded();
+          },0);
+       }
+      }
+    }
+  });
+```
 
 ### jsBrdge
   * (待验证)在安卓上通过JsBridge来传输BASE64字符串的话，需要UrlEncode两次后回调，不然会报异常
