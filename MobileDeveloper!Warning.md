@@ -146,6 +146,39 @@ background: -webkit-radial-gradient(50% 50%,circle,rgba(255,255,255,1),rgba(255,
 	 background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 ```
 
+### 滚动条
+设置id为box的dom滚动条样式，要求在内容超出的时候显示滚动条，内容不超出的时候隐藏滚动条
+
+CSS样式设置如下:
+
+```
+#box{
+	overflow-y:auto;//如果需要一直显示则改为scroll
+}
+
+//接下来定义滚动条的样式
+#box::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+#box::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+#box::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #D62929;
+}
+```
+
+
 ### ajax网络请求
   * 在调用ajax请求时，msg为字符串和msg为object，结果不同，代码如下：  
 ```javascript
