@@ -8,6 +8,11 @@
   * src为空的时候，display设置为none
   * 标签内最好添加 onerror=''  错误监听，不然可能引发全局异常
 
+### a标签
+	* 打电话及发短信实现（打电话需要<meta name="format-detection" content="telephone=yes">将电话功能打开)
+	* <a href="sms:10086">发短信给: 10086</a> 
+	* <a href="tel:020-11811922">打电话给:0755-10086</a>
+
 ### input标签
   * 在禁止用户编辑的时候，设置readonly="readonly",不要用disabled
   * type为file的时候，如果display设置为none会导致某些机器无法正常使用，所以通过透明度来隐藏<div style="opacity:0;"><input /></div>
@@ -352,3 +357,12 @@ if (typeof Object.assign != 'function') {
   });
 }
 ```
+
+### CSS动画
+	
+	* 对transform增加过度动画： dom.style.transition="-webkit-transform .5s ease-in";
+	* 动态修改transform3d: dom.style.webkitTransform="translate3d(0,0,0)";
+	
+
+
+
