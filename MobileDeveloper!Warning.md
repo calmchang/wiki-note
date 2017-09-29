@@ -232,6 +232,13 @@ $.ajax(settings2);
 		* Github Toc ： 让GITHUB内支持markdown的toc目录标签
 
 
+
+### encodeURI、encodeURIComponent、escape、RFC3986编码的区别
+
+* 关于以上4种编码的区别，我用以下图来进行对比，表格上为4种编码对各个字符编码后的结果
+* 总结：编码最完全，最安全的应该是RFC3986编码，我们常用的编码URL后面参数用的是:encodeURIComponent，encodeURI和escape最不常用
+
+![](MobileDeveloper/encode.jpg)
  
 
 ### manifest使用方法  
