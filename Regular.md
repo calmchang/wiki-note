@@ -258,7 +258,37 @@ money.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 
 
 
+### 案例对比
+```
+var patten = /(\d\d(?:\d\d))/g;
+var str = "12345678";
 
+var result = patten.exec(str);
+console.log(result);
+while(result&&result.index>=0){
+	result = patten.exec(str);
+	console.log(result);
+}
+["1234", index: 0, input: "12345678"]
+["5678", index: 4, input: "12345678"]
+
+
+
+var patten = /(\d\d(?=\d\d)/g;
+var str = "12345678";
+var result = patten.exec(str);
+console.log(result);
+while(result&&result.index>=0){
+	result = patten.exec(str);
+	console.log(result);
+}
+
+["12", index: 0, input: "12345678"]
+["34", index: 2, input: "12345678"]
+["56", index: 4, input: "12345678"]
+
+
+```
 
 
 
