@@ -34,6 +34,17 @@
 		* 获取输入内容时，用"".trim()去除首尾的空格
 		* 如果要求任何空格或不可见字符不能出现在字符串内，则可以利用正则 "xxx".replace(/\s/g,"");//将不可见字符删除，提高准确率
 
+	* webapp调用照片摄像头等  
+```
+
+        <input type="file" accept="image/*" capture="camera">//必须拍照
+        <input type="file" accept="video/*" capture="camcorder">//必须录像
+        <input type="file" accept="audio/*" capture="microphone">//必须拍照或录像
+
+        <input id="fileImage" type="file" accept="image/*">//获取图片
+        <input id="fileImage" type="file" accept="video/*">//获取录像
+        <input id="fileImage" type="file" accept="audio/*">//获取图片或录像
+```
 
 ### jsBrdge
   * (待验证)在安卓上通过JsBridge来传输BASE64字符串的话，需要UrlEncode两次后回调，不然会报异常
