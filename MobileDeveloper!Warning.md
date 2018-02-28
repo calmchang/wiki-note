@@ -382,5 +382,22 @@ if (typeof Object.assign != 'function') {
 	* 动态修改transform3d: dom.style.webkitTransform="translate3d(0,0,0)";
 	
 
+### ES6
+
+#### import/export  
+* 两种export的方法对应的import的使用：  
+	1、 导出为一个集合 
+		
+		export {App}  
+		import的时候： import {App} from 'dir/filename'; 
+
+		当有多个对象的时候export {App,App2}   
+		import的时候： import {App,App2} from 'dir/filename';   
+		也可以重命名 import {App as YourDiyName,App2 as YourDiyName2} from 'dir/filename';   
+
+		
+	2、 默认导出 - 默认导出只能导出1个对象  
+		export default App;  
+		import的时候： import YourDiyName from 'dir/filename';
 
 
