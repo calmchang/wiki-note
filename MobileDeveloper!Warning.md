@@ -401,3 +401,23 @@ if (typeof Object.assign != 'function') {
 		import的时候： import YourDiyName from 'dir/filename';
 
 
+### 字体兼容
+
+* 根据个人经验目前比较省事儿的字体兼容各屏幕的方法如下
+	1、UI定义出整个站点基础字号，默认移动端一般为12px  
+	2、UI定义出375的屏幕横向占有多少个12px的字，假设规范定义为24个字  
+	3、设置所有DOM默认字体 *{ font-size:1rem; }  
+	4、将html,body{font-size:12px;}  
+	5、页面加载过程中添加JS代码  
+	```
+		let lineCount = 375/12;
+		let defaultFontSize = Math.floor(window.screen.width/lineCount;
+		defaultFontSize = defaultFontSize > 12 ? 12 : defaultFontSize;
+		document.getElementsByTagName('html')[0].style.fontSize=defaultFontSize+'px';
+		document.getElementsByTagName('body')[0].style.fontSize=defaultFontSize+'px';
+	```
+
+
+
+
+
