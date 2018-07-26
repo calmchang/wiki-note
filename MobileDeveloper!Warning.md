@@ -400,6 +400,67 @@ if (typeof Object.assign != 'function') {
 		export default App;  
 		import的时候： import YourDiyName from 'dir/filename';
 
+* 查询字符串内是否包含某个字符串 : 用 "abcde".includes("cd") 代替 "abcde".indexOf("cd") >= 0
+
+* 格式化时间字符串  
+
+~~~
+
+
+var date = new Date(); 
+var type ="zh-CN";
+var types=["2-digit","numeric","narrow","short","long"];
+
+var options = {   
+  hour:types[1],
+  minute:types[1],
+  second:types[1],
+  hour12:false,
+};
+
+
+//14:08:30
+console.log( new Intl.DateTimeFormat(type,options).format(date) );
+
+
+var options = {   
+	year:types[1],
+	month: types[0],
+  day: types[0],
+  hour:types[1],
+  minute:types[1],
+  second:types[1],
+  hour12:false
+};
+
+//2018/05/22 14:06:59
+console.log( new Intl.DateTimeFormat(type,options).format(date) );
+
+
+var options = {   
+	year:types[1],
+	month: types[2],
+  day: types[0],
+
+};
+
+//2018年5月22日
+console.log( new Intl.DateTimeFormat(type,options).format(date) );
+
+
+var options = {   
+	year:types[1],
+	month: types[0],
+  day: types[0],
+
+};
+
+//2018/05/22
+console.log( new Intl.DateTimeFormat(type,options).format(date) );
+
+~~~
+
+* 格式化货币: new Intl.NumberFormat(["zh-CN"],{maximumFractionDigits:2}).format(123456.1264);//"123,456.13"
 
 ### 字体兼容
 
@@ -419,5 +480,22 @@ if (typeof Object.assign != 'function') {
 
 
 
+### vue-cli
+
+* vue-cli默认页面内的资源引用全部会打包成 `/static/xxx.png` 也就是去域名根目录下的static下拿  
+	解决方法：修改 config/index.js内的assetsPublicPaths属性，将`/`改为`./`
+
+* sass内background-image 引用图片打包后路径错误  
+	解决方法：`build/utils.js`内修改`vue-style-loader`增加` publicPath:'../../' `的配置
+
+* 查看当前vue-cli版本号:`vue -V`
+
+### 环境配置
+
+* 查看当前安装的vue-cli版本号:`vue -V`
+* 查看当前安装的node版本号:`node -v`
+* 查看当前安装的webpack版本号:`npm ls webpack`
+	* 查看本地安装的包的版本号及依赖包版本号:`npm ls 包名`
+* 查看线上最新包的版本号：`npm view 包名 version`
 
 
