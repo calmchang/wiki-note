@@ -499,3 +499,46 @@ console.log( new Intl.DateTimeFormat(type,options).format(date) );
 * 查看线上最新包的版本号：`npm view 包名 version`
 
 
+### get、set和Object.defineProperty的应用
+
+```
+var gName={
+	get:function(){
+		return this._name;
+	},
+	set:function(value){
+		this._name=value;
+	}
+};
+
+gName='default';//必须设置默认值，不然下一步获得到的gName是一个object
+console.log(gName);//default
+gName='peter';
+console.log(gName);//peter
+```
+
+```
+
+function Per(){
+
+	this._name='default';
+
+	Object.defineProperty(this, 'name', {
+		get:function(){return this._name;},
+		set:function(value){ this._name= value;}
+	});
+}
+
+
+```
+
+### UE
+
+### input组件
+* 获取用户输入内容进行校验或提交
+	* 基于移动端输入法较多，以及输入法混用输入情况，为了达到减少用户输入次数，更精确的拿到用户想输入的内容，我们规则如下：
+	* 利用trim()去除内容的前后空格部分
+	* 非特殊情况下，使用 replace("/\s/g,"") 去除字符串内所有的空格及不可见字符
+  
+
+
