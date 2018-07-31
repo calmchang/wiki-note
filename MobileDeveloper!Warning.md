@@ -275,31 +275,44 @@ $.ajax(settings2);
 * 简单期间，封装了一个用于继承2个类的方法如下:
 
 ~~~javascript
+
 	function ext(son,father){
-		//先调用父类构造方法进行初始化
-		father.apply(son,arguments[2]);
-		//然后遍历当期那子类的所有方法，如果出现重复，则不用父类覆盖子类
+		//遍历当期那子类的所有方法，如果出现重复，则不用父类覆盖子类
 		for( var param in father.prototype ){
 			if( !son.__proto__[param ]){
 				son.__proto__[param] = father.prototype[param];
+			}else{
+				son.__proto__[param].super = father.prototype[param];//【可选】将父类方法预留到super内，以备调用
 			}
 		}
+		//先调用父类构造方法进行初始化
+		father.apply(son,arguments[2]);
+		//创建runSuper方法，用于调用父类的同名方法【可选】
+		son.runSuper = function(funName,args){
+			if(this.__proto__[funName].super)this.__proto__[funName].super.apply(this,args);
+		}.bind(son);
 	}
 	
 	//使用方法如下
 	function Father(name){
 		this.name= name;
 	}
-	Father.prototype.say = function(){
-		console.log('father say ' + this.name);
+	Father.prototype.age = function(age){
+		console.log('father name is ' + this.name +' ,age is ' + age);
 	};
 
 	function Son(name){
 		ext(this,Father,arguments);
 	}
-	Son.prototype.say = function(){
-		console.log('son say ' + this.name);
+	Son.prototype.age = function(age){
+		this.runSuper('age',arguments);//【可选】运行父类方法
+		console.log('son name is ' + this.name +' ,age is ' + age);
 	};
+	var son = new Son("cx");
+	son.age(23);
+	//output:
+	//father name is cx ,age is 23
+	//son name is cx ,age is 23
 
 ~~~
 
