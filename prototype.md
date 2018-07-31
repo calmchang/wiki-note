@@ -14,3 +14,6 @@
 
 
 
+# call/apply/bind 区别
+
+ ![](prototype/call_apply_bind.jpg) 
