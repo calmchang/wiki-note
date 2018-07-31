@@ -321,7 +321,6 @@ $.ajax(settings2);
 * svn: Cornerstone  `http://www.zennaware.com/cornerstone/`
 * 抓包: Charles
 * git 对比: DiffMerge
-* 修改host文件: iHosts
 * 屏幕录像: LICEcap
 * 远程服务器: zoc7
 * 文件复制帮手: Yoink
