@@ -396,6 +396,69 @@ if (typeof Object.assign != 'function') {
 
 ### ES6
 
+#### 变量申明
+
+* const 声明常量，声明后不可改变值  
+* let 声明变量，但是let没有提升变量效果，要注意声明的位置，只有在声明位置后才能被正确调用
+
+#### 字符串模板
+
+利用模板字符串来组合字符串更方便
+```
+ let name="cx";
+ let ret = `我的名字叫 ${name}`; 
+```
+
+#### 函数
+
+* 默认参数代替原来a=a||100, `function test(a=100,b=200){}`  
+* 免写function和冒号 test(){}
+* 箭头函数  
+	* 原先使用 fun.bind(obj)()或fun.apply(obj);的地方，可以用箭头函数代替
+	* 缺点：不能改变this对象、没有arguments、不存在prototype所以不能被new无法继承
+
+#### 对象
+* 对象免键值  
+
+```
+  var name=‘cx’,age=12,nation="china";
+  var p={
+  	name,
+  	age,
+  	nation
+  };//等同于{name:name,age:age,nation:nation}
+```
+
+* 获取对象中某些键值  
+  let {name,age} = p;//等同于 let name=p.name,age=p.age;
+
+* 展开运算符...  
+
+```
+var obj={a:1,b:2,c:3};
+var obj2={c:4}; 
+var obj3={...ff,...ee}; // obj3={a:1,b:2,c:4};
+var arr=[1,2,3];
+var arr2=[4,5,6];
+var arr3=[…arr,…arr2];// arr3=[1,2,3,4,5,6];
+
+```
+
+* 在函数中要习惯用展开运算符代替arguments  
+
+```
+function add(...nums){
+	let ret=0;
+	for( let i=0;i<nums.length;i++){
+		ret+=nums[i];
+	}
+	return ret;
+}
+var num=[1,2,3];
+add(num);
+```
+
+
 #### import/export  
 * 两种export的方法对应的import的使用：  
 	1、 导出为一个集合 
