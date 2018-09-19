@@ -435,9 +435,11 @@ if (typeof Object.assign != 'function') {
 * 展开运算符...  
 
 ```
+//合并2个对象，可用于代替 Object.assign({},obj,obj2);
 var obj={a:1,b:2,c:3};
 var obj2={c:4}; 
-var obj3={...ff,...ee}; // obj3={a:1,b:2,c:4};
+var obj3={...obj,...obj2}; // obj3={a:1,b:2,c:4};
+
 var arr=[1,2,3];
 var arr2=[4,5,6];
 var arr3=[…arr,…arr2];// arr3=[1,2,3,4,5,6];
