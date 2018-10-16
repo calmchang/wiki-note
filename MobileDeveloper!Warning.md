@@ -567,6 +567,9 @@ console.log( new Intl.DateTimeFormat(type,options).format(date) );
 
 * 查看当前vue-cli版本号:`vue -V`
 
+* 使用@keyframes写动画，不要使用@-webkit-keyframes写动画
+
+
 ### 环境配置
 
 * 查看当前安装的vue-cli版本号:`vue -V`
