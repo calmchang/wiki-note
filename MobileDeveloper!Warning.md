@@ -612,6 +612,30 @@ function Per(){
 
 ```
 
+## 微信开发相关
+
+### 在微信内分享的url拼接注意事项
+
+通过#来做页面路由跳转的单页网站，在微信上授权时需要注意，将?后参数放在#前
+
+举例说明：
+
+~~~
+
+页面：https://test.com/#/?inviteCode=123&approach=1234
+
+经过微信授权后，微信回调回来URL变为
+https://test.con/?code=01117NaK17GH750u3DaK1iExaK117Na-&state=ws#/?inviteCode=123&approach=123
+
+此时 vueRouter解析query为 inviteCode和approach，#之前的参数丢失
+
+而如果页面参数为:https://test.com/?inviteCode=123&approach=1234#/
+
+经过微信授权后，微信回调回来URL变为
+https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117Na-&state=ws#/
+
+~~~
+
 ### UE
 
 ### input组件
