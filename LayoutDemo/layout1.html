@@ -12,6 +12,184 @@
 
   <link rel="stylesheet" type="text/css" href="css/layout1.css">
 
+<style>
+	
+.flex-hide {
+    display: none !important;
+}
+
+
+/**
+ * 主轴为横向排列的
+ */
+.flex-center,
+.flex-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+
+/**
+ * 主轴为竖向排列的
+ */
+.flex-col-center,
+.flex-col {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/**
+ * 主轴元素排列为左对齐
+ */
+.flex-main-start {
+    -webkit-box-pack: start;
+    -moz-flex-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start;
+}
+/**
+ * 主轴元素排列为居中
+ */
+.flex-col-center,
+.flex-center,
+.flex-main-center {
+    -webkit-box-pack: center;
+    -moz-flex-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+
+/**
+ * 主轴元素排列为右对齐
+ */
+.flex-main-end {
+    -webkit-box-pack: end;
+    -moz-flex-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+/**
+ * 主轴元素排列为两端对齐
+ */
+.flex-main-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    
+    -moz-flex-pack: space-between;
+    -ms-flex-pack: space-between;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+
+/**
+ * 主轴元素排列为平均分布
+ */
+.flex-main-around {
+    -webkit-box-pack: space-around;
+    -moz-flex-pack: space-around;
+    -ms-flex-pack: space-around;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    justify-content: space-around;
+}
+
+.flex-cross-start {
+    -webkit-box-align: start;
+    -moz-flex-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+}
+
+/**
+ * 以下为设定另外一个轴的对齐方式
+ */
+.flex-center,
+.flex-col-center,
+.flex-cross-center {
+    -webkit-box-align: center;
+    -moz-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}
+
+.flex-cross-end {
+    -webkit-box-align: end;
+    -moz-flex-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    align-items: flex-end;
+}
+
+.flex-cross-between {
+    -webkit-box-align: space-between;
+    -moz-flex-align: space-between;
+    -ms-flex-align: space-between;
+    -webkit-align-items: space-between;
+    -moz-align-items: space-between;
+    align-items: space-between;
+}
+
+.flex-cross-around {
+    -webkit-box-align: space-around;
+    -moz-flex-align: space-around;
+    -ms-flex-align: space-around;
+    -webkit-align-items: space-around;
+    -moz-align-items: space-around;
+    align-items: space-around;
+}
+
+
+/**
+ * 设置排列满后是否自动换行
+ */
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/**
+ * 设置元素在主轴上自动填充平均分布
+ */
+.flex-auto {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex-grow: 1;
+}
+</style>
 </head>
 <body>
 

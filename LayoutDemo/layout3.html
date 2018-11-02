@@ -222,44 +222,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 p{
-  font-size:40px;
-  color:black;
+  font-weight: lighter;
+  text-shadow: 6px 0px 3px #bbb;
+  font-size:1.2rem;
 }
 body,html{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   background:blue;
 }
 </style>
 
 
 </head>
-
+  <!-- 底部footer固定高度，去除底部剩余部分图片按原宽高比撑满高度 -->
   <body>
     <section class="flex-col" style="width:100%;height:100%;">
-      <hgroup id="content" class="flex-auto" style="background: green;">
-        <p>底部footer置底，当body内容超过footer后将footer网下顶</p>
-        <!-- <p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p> -->
+      <hgroup class="flex-auto" style="background: green;">
+        <!-- 关键点1 -->
+        <div class="flex-center" style="width:100%;height:100%;position: absolute;left:0;top:0;">
+          <img src="image/111.jpg" style="max-width:100%;max-height:100%;">
+        </div>
       </hgroup>
-      <hgroup>
+      <!-- 关键点2 -->
+      <hgroup id="footer">
         <div class="flex-center" style="width:100%;height:60px;border:2px solid black;">
           返回
         </div>
+        
       </hgroup>
 
     </section>
-    <script>
-      var idx=0;
-      var timer = setInterval(function(){
-        idx++;
-        var dom = document.createElement('p');
-        dom.innerText=idx>=10?"最后一行":"增加一行";
-        document.getElementById('content').appendChild(dom);
-        
-        if(idx>=10){
-          window.clearInterval(timer);
-        }
-      },500);
-    </script>
   </body>
 </html>
