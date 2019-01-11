@@ -46,3 +46,18 @@
 * ctrl+shift+w ： 在选中的文本两端增加标签
 * ![](sublime/selectTextTag.gif)
 	  
+### install package报错的提示无法下载channel_v3.json
+
+
+package setting -> package control -> settings-user 增加以下
+
+```
+"channels":
+  [
+    "http://cst.stu.126.net/u/json/cms/channel_v3.json"
+  ],
+````
+
+
+
+
