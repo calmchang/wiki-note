@@ -36,7 +36,10 @@
     * Markdown Preview : 用于在浏览器内预览编辑的md文件
         * 编辑MD文件需要预览时，按 `command + shift + P` 然后输入 `preview in browser` `回车` 就会在浏览器中打开当前编辑的文档了
         * 当文档修改后，只需要在浏览器内刷新一下就行啦
-		
+
+* Pretty Json:方便格式化json字符串
+
+
 ### 插件卸载
 * `command + shift + P` 打开插件控制中心
 * 输入 `remove package` 然后 `回车`
