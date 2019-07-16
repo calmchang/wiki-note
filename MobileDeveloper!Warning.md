@@ -1,6 +1,13 @@
 [TOC]
 ## 如果您喜欢我写的内容，那么给我一个星星吧！※
 
+
+### 数组遍历方法的区别
+
+![](MobileDeveloper/arraymap.png)
+
+* 除了for是万精油，性能也最好外，其实其他几种方法都是针对不同场景下的，所以不用太纠结性能问题，只要选择适合自己的场景就行，杠精的话可以用for实现一切
+
 ### select标签
   * 获取选项值的时候 dom.selectedOptions[0]不兼容，应该用dom.options[dom.selectIndex]获取到对象
 
