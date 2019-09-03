@@ -422,7 +422,16 @@ if (typeof Object.assign != 'function') {
 * 免写function和冒号 test(){}
 * 箭头函数  
 	* 原先使用 fun.bind(obj)()或fun.apply(obj);的地方，可以用箭头函数代替
-	* 缺点：不能改变this对象、没有arguments、不存在prototype所以不能被new无法继承
+	* 缺点：不能改变this对象、没有arguments、不存在prototype所以不能被new无法继承  
+  
+* apply、bind、call区别
+  * apply和call 传参方式不同
+    * fn.apply(this,a,b,c);
+    * fn.call(this,[a,b,c]);
+    * fn.bind(this,a,b,c);
+  * bind用于生成新对象,apply和call立即执行，当需要生成一个新对象一直绑定某个obj的时候，使用bind
+    * var myFn=fn.bind(this,a,b,c); myFn();
+
 
 #### 对象
 * 对象免键值  
