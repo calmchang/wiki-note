@@ -255,6 +255,9 @@ phone = phone.replace(/(\d)(?=(\d{4})+$)/g, '$1 ');
 var money='1234567890123';
 money.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 
+* 新的货币切割方式
+	console.log(new Intl.NumberFormat().format(123456.3334));
+
 
 
 
