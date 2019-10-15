@@ -426,8 +426,8 @@ if (typeof Object.assign != 'function') {
   
 * apply、bind、call区别
   * apply和call 传参方式不同
-    * fn.apply(this,a,b,c);
-    * fn.call(this,[a,b,c]);
+    * fn.call(this,a,b,c);
+    * fn.apply(this,[a,b,c]);
     * fn.bind(this,a,b,c);
   * bind用于生成新对象,apply和call立即执行，当需要生成一个新对象一直绑定某个obj的时候，使用bind
     * var myFn=fn.bind(this,a,b,c); myFn();
