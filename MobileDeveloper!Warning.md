@@ -205,6 +205,66 @@ CSS样式设置如下:
 }
 ```
 
+### sass
+
+父选择器  
+  源代码
+    a{ &:hover{color:red}} 
+  编译后
+    a{ a:hover{color:red}} 
+
+占位符选择器  
+  源代码
+    %big{font-size:100px} 
+    .style1{
+      @extend %big;
+    }
+    .style2{
+      @extend %big;
+    }
+  编译后
+    .style1,.style2{
+      font-size:100px
+    }
+  如果%big没有被使用到，编译结果内将不存在
+
+@mixin和@include，mixin代码段将替换到@include处
+  源代码
+    @mixin big{ font-size:100px}
+    .style1{@include big;}
+    .style2{@include big;}
+  编译后
+    .style1{font-size:100px}
+    .style2{font-size:100px}
+
+@function 函数
+  源代码
+    @function big(){@return 100+px;}
+    .style1{font-size:big();}
+  编译后
+    .style1{font-size:100px;}
+
+
+div + p: 代表 div 同级下相邻的第一个 p 元素
+
+    <div>
+      <p>不满足</p>
+    </div>
+    <p>满足</p>
+    <p>不满足</p>
+
+div > p : 代表在div内部所有p标签的子元素 
+
+  <div>
+    <p>满足</p>
+    <hgroup>
+      <p>不满足</p>
+    </hgroup>
+    <p>满足</p>
+  </div>
+  <p>不满足</p>
+
+
 
 ### ajax网络请求
   * 在调用ajax请求时，msg为字符串和msg为object，结果不同，代码如下：  
