@@ -722,3 +722,33 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
   
 
 
+### 设计模式
+
+* 工厂模式
+  产生规定规格内的相似对象
+  function createPerson(name,age,sex){
+    let obj=new Object();
+    obj.name=name;
+    obj.age=age;
+    obj.sex=sex;
+    return obj;
+  }
+
+* 观察者模式
+let eatWacher=[fn,fn2,fn3]
+
+function eat(){
+  console.log('eatting');
+  eatWacher.map((fn)=>{fn()});
+}
+
+* 单体模式
+  对象只被实例化一次，重复调用时为已创建的实例
+function getInstance(){
+  if(!this.instance){
+    this.instance=new Object();
+  }
+  return this.instance;
+}
+
+
