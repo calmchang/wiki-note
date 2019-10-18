@@ -209,52 +209,69 @@ CSS样式设置如下:
 
 父选择器  
   源代码
+```
     a{ &:hover{color:red}} 
+```
   编译后
+```
     a{ a:hover{color:red}} 
+```
 
 占位符选择器  
   源代码
-    %big{font-size:100px} 
-    .style1{
-      @extend %big;
-    }
-    .style2{
-      @extend %big;
-    }
+```
+  %big{font-size:100px} 
+  .style1{
+    @extend %big;
+  }
+  .style2{
+    @extend %big;
+  }
+```
   编译后
-    .style1,.style2{
-      font-size:100px
-    }
+```
+  .style1,.style2{
+    font-size:100px
+  }
+```
   如果%big没有被使用到，编译结果内将不存在
 
 @mixin和@include，mixin代码段将替换到@include处
   源代码
-    @mixin big{ font-size:100px}
-    .style1{@include big;}
-    .style2{@include big;}
+```
+  @mixin big{ font-size:100px}
+  .style1{@include big;}
+  .style2{@include big;}
+```
   编译后
-    .style1{font-size:100px}
-    .style2{font-size:100px}
+```
+  .style1{font-size:100px}
+  .style2{font-size:100px}
+```
 
 @function 函数
   源代码
-    @function big(){@return 100+px;}
-    .style1{font-size:big();}
+```
+  @function big(){@return 100+px;}
+  .style1{font-size:big();}
+```
   编译后
-    .style1{font-size:100px;}
+```
+  .style1{font-size:100px;}
+```
 
 
 div + p: 代表 div 同级下相邻的第一个 p 元素
-
+```
     <div>
       <p>不满足</p>
     </div>
     <p>满足</p>
     <p>不满足</p>
+```
 
 div > p : 代表在div内部所有p标签的子元素 
-
+```
   <div>
     <p>满足</p>
     <hgroup>
@@ -263,6 +280,7 @@ div > p : 代表在div内部所有p标签的子元素
     <p>满足</p>
   </div>
   <p>不满足</p>
+```
 
 
 
@@ -557,61 +575,59 @@ add(num);
 
 * 格式化时间字符串  
 
-~~~
+```
+  var date = new Date(); 
+  var type ="zh-CN";
+  var types=["2-digit","numeric","narrow","short","long"];
+
+  var options = {   
+    hour:types[1],
+    minute:types[1],
+    second:types[1],
+    hour12:false,
+  };
 
 
-var date = new Date(); 
-var type ="zh-CN";
-var types=["2-digit","numeric","narrow","short","long"];
-
-var options = {   
-  hour:types[1],
-  minute:types[1],
-  second:types[1],
-  hour12:false,
-};
+  //14:08:30
+  console.log( new Intl.DateTimeFormat(type,options).format(date) );
 
 
-//14:08:30
-console.log( new Intl.DateTimeFormat(type,options).format(date) );
+  var options = {   
+  	year:types[1],
+  	month: types[0],
+    day: types[0],
+    hour:types[1],
+    minute:types[1],
+    second:types[1],
+    hour12:false
+  };
+
+  //2018/05/22 14:06:59
+  console.log( new Intl.DateTimeFormat(type,options).format(date) );
 
 
-var options = {   
-	year:types[1],
-	month: types[0],
-  day: types[0],
-  hour:types[1],
-  minute:types[1],
-  second:types[1],
-  hour12:false
-};
+  var options = {   
+  	year:types[1],
+  	month: types[2],
+    day: types[0],
 
-//2018/05/22 14:06:59
-console.log( new Intl.DateTimeFormat(type,options).format(date) );
+  };
+
+  //2018年5月22日
+  console.log( new Intl.DateTimeFormat(type,options).format(date) );
 
 
-var options = {   
-	year:types[1],
-	month: types[2],
-  day: types[0],
+  var options = {   
+  	year:types[1],
+  	month: types[0],
+    day: types[0],
 
-};
+  };
 
-//2018年5月22日
-console.log( new Intl.DateTimeFormat(type,options).format(date) );
+  //2018/05/22
+  console.log( new Intl.DateTimeFormat(type,options).format(date) );
 
-
-var options = {   
-	year:types[1],
-	month: types[0],
-  day: types[0],
-
-};
-
-//2018/05/22
-console.log( new Intl.DateTimeFormat(type,options).format(date) );
-
-~~~
+```
 
 * 格式化货币: new Intl.NumberFormat(["zh-CN"],{maximumFractionDigits:2}).format(123456.1264);//"123,456.13"
 
@@ -740,49 +756,54 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
 * 观察者模式
   每次触发行为将通知所有的观察者
   应用场景：事件监听、拦截器
-
-let eatWacher=[fn,fn2,fn3]
-function eat(){
-  console.log('eatting');
-  eatWacher.map((fn)=>{fn()});
-}
+```
+  let eatWacher=[fn,fn2,fn3]
+  function eat(){
+    console.log('eatting');
+    eatWacher.map((fn)=>{fn()});
+  }
+```
 
 * 单体模式
   对象只被实例化一次，重复调用时为已创建的实例
   应用场景：只需要创建一次对象即可的，比如全局的组件
-function getInstance(){
-  if(!this.instance){
-    this.instance=new Object();
+```
+  function getInstance(){
+    if(!this.instance){
+      this.instance=new Object();
+    }
+    return this.instance;
   }
-  return this.instance;
-}
+```
 
 
 * 订阅-发布模式
   订阅者像订阅中心预定自己关心的消息类型
   订阅中心在收到事件的时候，分发给订阅者他们关心的事务
   应用场景：消息中心
-var buyPhoneEvent={
-  list:[],
-  listen(key,fn){
-    this.list[key]=this.list[key]||[];
-    this.list[key].push(fn);
-  },
-  tigger(...params){
-    var key = (params&&params[0])?params[0]:"";
-    if(!key)return;
-    var lst = this.list[key];
-    if(!lst||lst.length===0)return;
-    lst.map((fn)=>{fn.apply(this,params)})
-  }
-};
+```
+  var buyPhoneEvent={
+    list:[],
+    listen(key,fn){
+      this.list[key]=this.list[key]||[];
+      this.list[key].push(fn);
+    },
+    tigger(...params){
+      var key = (params&&params[0])?params[0]:"";
+      if(!key)return;
+      var lst = this.list[key];
+      if(!lst||lst.length===0)return;
+      lst.map((fn)=>{fn.apply(this,params)})
+    }
+  };
 
-buyPhoneEvent.listen('iphone',(...params)=>{console.log(`buy iphone ${params[0]}-${params[1]}`)});
-buyPhoneEvent.listen('huawei',(...params)=>{console.log(`buy huawei ${params[0]}-${params[1]}`)});
+  buyPhoneEvent.listen('iphone',(...params)=>{console.log(`buy iphone ${params[0]}-${params[1]}`)});
+  buyPhoneEvent.listen('huawei',(...params)=>{console.log(`buy huawei ${params[0]}-${params[1]}`)});
 
-buyPhoneEvent.tigger("iphone","4999");
-buyPhoneEvent.tigger("huawei","2999");
-buyPhoneEvent.tigger("xiaomi","999");
+  buyPhoneEvent.tigger("iphone","4999");
+  buyPhoneEvent.tigger("huawei","2999");
+  buyPhoneEvent.tigger("xiaomi","999");
+```
 
 
 
