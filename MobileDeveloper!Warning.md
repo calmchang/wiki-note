@@ -726,6 +726,7 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
 
 * 工厂模式
   产生规定规格内的相似对象
+  应用场景：创建组件、创建各类对象等
   function createPerson(name,age,sex){
     let obj=new Object();
     obj.name=name;
@@ -735,8 +736,10 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
   }
 
 * 观察者模式
-let eatWacher=[fn,fn2,fn3]
+  每次触发行为将通知所有的观察者
+  应用场景：事件监听、拦截器
 
+let eatWacher=[fn,fn2,fn3]
 function eat(){
   console.log('eatting');
   eatWacher.map((fn)=>{fn()});
@@ -744,11 +747,40 @@ function eat(){
 
 * 单体模式
   对象只被实例化一次，重复调用时为已创建的实例
+  应用场景：只需要创建一次对象即可的，比如全局的组件
 function getInstance(){
   if(!this.instance){
     this.instance=new Object();
   }
   return this.instance;
 }
+
+
+* 订阅-发布模式
+  订阅者像订阅中心预定自己关心的消息类型
+  订阅中心在收到事件的时候，分发给订阅者他们关心的事务
+  应用场景：消息中心
+var buyPhoneEvent={
+  list:[],
+  listen(key,fn){
+    this.list[key]=this.list[key]||[];
+    this.list[key].push(fn);
+  },
+  tigger(...params){
+    var key = (params&&params[0])?params[0]:"";
+    if(!key)return;
+    var lst = this.list[key];
+    if(!lst||lst.length===0)return;
+    lst.map((fn)=>{fn.apply(this,params)})
+  }
+};
+
+buyPhoneEvent.listen('iphone',(...params)=>{console.log(`buy iphone ${params[0]}-${params[1]}`)});
+buyPhoneEvent.listen('huawei',(...params)=>{console.log(`buy huawei ${params[0]}-${params[1]}`)});
+
+buyPhoneEvent.tigger("iphone","4999");
+buyPhoneEvent.tigger("huawei","2999");
+buyPhoneEvent.tigger("xiaomi","999");
+
 
 
