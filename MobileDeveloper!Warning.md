@@ -727,6 +727,7 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
 * 工厂模式
   产生规定规格内的相似对象
   应用场景：创建组件、创建各类对象等
+```
   function createPerson(name,age,sex){
     let obj=new Object();
     obj.name=name;
@@ -734,6 +735,7 @@ https://test.con/?inviteCode=123&approach=123&code=01117NaK17GH750u3DaK1iExaK117
     obj.sex=sex;
     return obj;
   }
+```
 
 * 观察者模式
   每次触发行为将通知所有的观察者
