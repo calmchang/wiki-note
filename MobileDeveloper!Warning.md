@@ -13,7 +13,7 @@
 
 ### img标签
   * src为空的时候，display设置为none
-  * 标签内最好添加 onerror=''  错误监听，不然可能引发全局异常
+  /Users/tsuneasahi/Documents/github/wiki/Regular.md* 标签内最好添加 onerror=''  错误监听，不然可能引发全局异常
 
 ### a标签
 	* 打电话及发短信实现（打电话需要<meta name="format-detection" content="telephone=yes">将电话功能打开)
@@ -183,20 +183,22 @@ CSS样式设置如下:
 	overflow-y:auto;//如果需要一直显示则改为scroll
 }
 
-//接下来定义滚动条的样式
-#box::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #F5F5F5;
-}
-
+//整个滚动条整体区域的样式定义
 #box::-webkit-scrollbar
 {
-  width: 12px;
-  background-color: #F5F5F5;
+  width: 3px;
+  background-color: #F5F5F5;//整个滚动条背景颜色
 }
 
+//整个滚动条的轨道
+#box::-webkit-scrollbar-track
+{
+  width: 3px;
+  background-color: #F5F5F5;//整个滚动条背景颜色
+}
+
+
+//滚动条当前可拖动的bar的样式
 #box::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
